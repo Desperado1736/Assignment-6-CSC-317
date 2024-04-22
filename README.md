@@ -1,3 +1,5 @@
+# [Deployed Website](https://desperado1736.github.io/Assignment-6-CSC-317/) 
+
 # Word Frequency Counter
 
 This project allows users to input text and calculates the frequency of each word. The top 5 most frequent words are displayed in a table.
