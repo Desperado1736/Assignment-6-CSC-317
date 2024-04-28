@@ -1,4 +1,3 @@
-
 function createElement(tag, attributes = {}, textContent = '') {
   const element = document.createElement(tag);
   for (const abc in attributes) {
@@ -29,13 +28,20 @@ document.getElementById('submitButton').addEventListener('click', function() {
  
   words.forEach(word => {
     frequencyTable[word] = (frequencyTable[word] || 0) + 1;
+    
   });
+  
+const sortedWords = Object.keys(frequencyTable).sort((a, b) => frequencyTable[b] - frequencyTable[a]);
 
-  const sortedWords = Object.keys(frequencyTable).sort((a, b) => frequencyTable[b] - frequencyTable[a]);
+  const sameFreq = Object.keys(frequencyTable).sort((p, q) => {
+  
+  const freqComparison = frequencyTable[q] - frequencyTable[p];
 
-  //Clears previous result
-  tableContainer.innerHTML = '';
-
+  if (freqComparison === 0) {
+    return p.localeCompare(q); // String comparison when frequencies are equal
+  }
+  return freqComparison; 
+});
 
   const table = createElement('table');
   const tableHead = createElement('tr');
@@ -54,5 +60,17 @@ document.getElementById('submitButton').addEventListener('click', function() {
   
   tableContainer.appendChild(table);
 
-  console.log(frequencyTable);
+  let output = "{\n";
+  sameFreq.forEach((word, index) => {
+    output += `  ${word}: ${frequencyTable[word]}`;
+    if (index < sortedWords.length - 1) {
+      output += ",\n";
+    } else {
+      output += "\n";
+    }
+  });
+  output += "}";
+
+
+  console.log(output);
 });
