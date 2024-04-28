@@ -1,4 +1,4 @@
-# [Deployed Website](https://desperado1736.github.io/Assignment-6-CSC-317/) 
+# [Deployed Website]() 
 
 # Word Frequency Counter
 
@@ -7,4 +7,4 @@ This project allows users to input text and calculates the frequency of each wor
 ## Features
 - Dynamically creates UI elements using the DOM API
 - Counts word frequencies and displays results in a table
-- Supports consistent sorting for words with the same frequency
+- Supports consistent sorting for words with the same frequencys
